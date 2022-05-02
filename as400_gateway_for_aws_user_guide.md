@@ -321,15 +321,3 @@ Go to Simple Notification Services&rarr;click on Topics&rarr;Create Topic&rarr;s
 
 Click on Create Subcription&rarr;select protocol(e.g. AWS Lambda)&rarr;Enter a valid AWS Lambda ARN (for example, arn:aws:lambda:us-east-1:123456789012:function:MyLambdaFunction)&rarr;After your subscription is created, you must confirm it.&rarr;set bother properties according(Optional)&rarr;click on Create Subscription
 
-
-
-Salesforce is used as a sample external system that sends orders to IBM i based ERP and receives order statuses back from the ERP in near real time. Note that most companies will likely have different services and applications used for API management, security policies, token validations, routing and other AWS components interacting with AS400Gateway for AWS.
-
-
-![image](https://user-images.githubusercontent.com/88314020/165104639-b994e4a4-1c9b-4a54-9af2-0c2c7b8a3be0.png)
-
-Considering an use case with Salesforce as a source system, whenever a record is created in salesforce Apex class in salesforce will fetch the record and push to API gateway. Since AS400 gateway doesn’t understand the request coming from Salesforce, Lambda function will help in formatting the input in AS400 consumable format. Necessary operations are done in AS400 gateway and response will be push to SNS topic. Lambda function will pick the messages from SNS topic and update back to the salesforce.
-
-
-
-
